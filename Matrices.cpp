@@ -2,6 +2,7 @@
 #include "Matrix.h"
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 
 using namespace std;
 
@@ -16,13 +17,13 @@ int main() {
 
     Matrix<int> matriz(filas, columnas);
 
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
 
     int opcion = -1;
 
     while (opcion != 0) {
         cout << "\nEstado actual de la matriz:\n";
-        matriz.print();
+        matriz.print();  // Si esto da error, prueba matriz.Matrix<int>::print()
 
         cout << "\nMenu:\n";
         cout << "1. getValue\n";
